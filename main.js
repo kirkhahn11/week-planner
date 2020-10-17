@@ -7,8 +7,7 @@ container.addEventListener('click', addEvent);
 function addEvent() {
   if (event.target.id === 'container') {
     return
-  } else {
-      scheduleText.textContent = 'Scheduled Events For ' + event.target.textContent
-      console.log(event.target)
   }
+  scheduleText.textContent = 'Scheduled Events For ' + event.target.textContent
+  console.log(event.target)
 }
