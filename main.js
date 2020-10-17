@@ -10,6 +10,8 @@ var hours = document.getElementById('hours')
 var minutes = document.getElementById('minutes')
 var amPm = document.getElementById('ampm')
 var descriptionText = document.getElementById('description')
+var form = document.getElementById('modal-form')
+var formBody = document.getElementById('form-body')
 
 container.addEventListener('click', addEvent);
 
@@ -24,21 +26,24 @@ function addEvent() {
 addEntryButton.addEventListener('click', modalAppear)
 
 function modalAppear() {
-  modal.style.display = 'initial'
+  modal.classList.remove('hidden')
 }
 
-submitButton.addEventListener('click', addText)
+form.addEventListener('submit', addText)
 
 function addText() {
-  modal.style.display = 'none'
-  for(var i = 0; i < timeData.length; i++) {
-    if(timeData[i].textContent === '') {
-      timeData[i].textContent = hours.value + ':' + minutes.value + ' ' + amPm.value
-      descriptionData[i].textContent = descriptionText.value
-      descriptionText.value = ''
-      minutes.value = ''
-      hours.value = ''
-      return
-    }
-  }
+  event.preventDefault()
+  modal.classList.add('hidden')
+  var tr = document.createElement('tr')
+  var tdTime = document.createElement('td')
+  var tdDescription = document.createElement('td')
+  tdTime.textContent = hours.value + ':' + minutes.value + ' ' + amPm.value
+  tdTime.style.borderRight = '2px solid black'
+  tdDescription = descriptionText.value
+  tr.append(tdTime)
+  tr.append(tdDescription)
+  formBody.append(tr)
+  descriptionText.value = ''
+  minutes.value = ''
+  hours.value = ''
 }

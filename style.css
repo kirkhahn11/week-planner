@@ -80,5 +80,8 @@ td, th {
   top: 30%;
   left: 21%;
   background-color: white;
+}
+
+.hidden {
   display: none;
 }
