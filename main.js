@@ -5,10 +5,9 @@ var container = document.getElementById('container');
 container.addEventListener('click', addEvent);
 
 function addEvent() {
-  if (event.target.textContent === 'Sunday' || event.target.textContent === 'Monday' ||
-    event.target.textContent === 'Tuesday' || event.target.textContent === 'Wednesday' ||
-    event.target.textContent === 'Thursday' || event.target.textContent === 'Friday' ||
-    event.target.textContent === 'Saturday') {
+  if (event.target.id === 'container') {
+    return
+  } else {
       scheduleText.textContent = 'Scheduled Events For ' + event.target.textContent
       console.log(event.target)
   }
