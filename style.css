@@ -60,6 +60,7 @@ tr:nth-child(odd) {
 table {
   border: 2px solid black;
   border-collapse: collapse;
+  font-family: 'Work Sans', sans-serif;
 }
 
 td, th {

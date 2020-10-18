@@ -31,7 +31,7 @@ function modalAppear() {
 
 form.addEventListener('submit', addText)
 
-function addText() {
+function addText(event) {
   event.preventDefault()
   modal.classList.add('hidden')
   var tr = document.createElement('tr')
