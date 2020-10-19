@@ -60,8 +60,29 @@ tr:nth-child(odd) {
 table {
   border: 2px solid black;
   border-collapse: collapse;
+  font-family: 'Work Sans', sans-serif;
 }
 
 td, th {
   border-left: 2px solid black;
+}
+
+#description {
+  width: 500px;
+  height: 100px;
+  margin-top: 30px;
+}
+
+.modal {
+  border: 2px solid black;
+  width: 800px;
+  height: 300px;
+  position: fixed;
+  top: 30%;
+  left: 21%;
+  background-color: white;
+}
+
+.hidden {
+  display: none;
 }
