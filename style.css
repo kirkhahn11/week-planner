@@ -46,6 +46,7 @@
 
 .description-header {
   width: 1000px;
+  border-left: 2px solid black
 }
 
 tr:nth-child(even) {
@@ -63,11 +64,8 @@ table {
   font-family: 'Work Sans', sans-serif;
 }
 
-td, th {
-  border-left: 2px solid black;
-}
-
-#description {
+#description,
+#update-description {
   width: 500px;
   height: 100px;
   margin-top: 30px;
@@ -85,4 +83,16 @@ td, th {
 
 .hidden {
   display: none;
+}
+
+.update-button {
+  background-color: blue;
+  color: white;
+  border: 3px solid black;
+}
+
+.description-container {
+  display: flex;
+  justify-content: space-between;
+  margin: 2px;
 }
