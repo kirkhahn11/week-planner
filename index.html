@@ -73,6 +73,47 @@
         <textarea name="description" id="description" cols="30" rows="10" placeholder="Description"></textarea>
       </form>
     </div>
+    <div class="modal text-align-center hidden" id="update-modal">
+      <h1>Add Entry</h1>
+      <form action="" id="update-modal-form">
+        <select name="day" id="update-date">
+          <option value="Day" disabled selected>Day</option>
+          <option value="Sunday">Sunday</option>
+          <option value="Monday">Monday</option>
+          <option value="Tuesday">Tuesday</option>
+          <option value="Wednesday">Wednesday</option>
+          <option value="Thursday">Thursday</option>
+          <option value="Friday">Friday</option>
+          <option value="Saturday">Saturday</option>
+        </select>
+        <select name="hours" id="update-hours">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+          <option value="11">11</option>
+          <option value="12">12</option>
+        </select>
+        <select name="minutes" id="update-minutes">
+          <option value="00">00</option>
+          <option value="15">15</option>
+          <option value="30">30</option>
+          <option value="45">45</option>
+        </select>
+        <select name="ampm" id="update-ampm">
+          <option value="AM">AM</option>
+          <option value="PM">PM</option>
+        </select>
+        <input type="submit" id="update-submit"> <br>
+        <textarea name="description" id="update-description" cols="30" rows="10" placeholder="Description"></textarea>
+      </form>
+    </div>
 
     <script src="main.js"></script>
   </body>
