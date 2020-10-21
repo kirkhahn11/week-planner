@@ -22,6 +22,9 @@ var form = document.getElementById('modal-form');
 var formBody = document.getElementById('form-body');
 var updateFormBody = document.getElementById('update-modal-form');
 var updateModal = document.getElementById('update-modal');
+var deleteModal = document.getElementById('delete-modal');
+var yesButton = document.getElementById('yes');
+var noButton = document.getElementById('no');
 
 container.addEventListener('click', addEvent);
 
@@ -48,6 +51,11 @@ function addText(event) {
   var tr = document.createElement('tr');
   var tdContainer = document.createElement('span');
   tdContainer.classList.add('description-container');
+  var buttonContainer = document.createElement('span');
+  var deleteButton = document.createElement('button');
+  var deleteButtonText = document.createTextNode('Delete');
+  deleteButton.appendChild(deleteButtonText);
+  deleteButton.addEventListener('click', deleteModalAppear);
   var tdTime = document.createElement('td');
   var tdDescription = document.createElement('td');
   var tdUpdate = document.createElement('button');
@@ -56,17 +64,21 @@ function addText(event) {
   tdUpdate.appendChild(updateButtonText);
   tdUpdate.classList.add('update-button');
   tdUpdate.classList.remove('hidden');
+  deleteButton.classList.add('delete-button');
   var eventData = {
     eventDescription: descriptionText.value,
     eventTime: hours.value + ':' + minutes.value + ' ' + amPm.value,
-    eventUpdate: tdUpdate
+    eventUpdate: tdUpdate,
+    eventDelete: deleteButton
   };
   appState.events.push(eventData);
   tdTime.style.borderRight = '2px solid black';
   tdDescription.textContent = appState.events[appState.events.length - 1].eventDescription;
   tdTime.textContent = appState.events[appState.events.length -1].eventTime;
+  buttonContainer.append(tdUpdate);
+  buttonContainer.append(deleteButton);
   tdContainer.append(tdDescription);
-  tdContainer.append(tdUpdate);
+  tdContainer.append(buttonContainer);
   tr.append(tdTime);
   tr.append(tdContainer);
   formBody.append(tr);
@@ -79,8 +91,8 @@ function addText(event) {
     for(var i = 0; i < appState.events.length; i++) {
       if(appState.events[i].eventUpdate.className === 'update-button hidden') {
         appState.events[i].eventUpdate.classList.remove('hidden');
-        appState.events[i].eventUpdate.previousElementSibling.textContent = descriptionTextUpdate.value;
-        appState.events[i].eventUpdate.parentElement.previousElementSibling.textContent = hoursUpdate.value + ":" + minutesUpdate.value + " " + amPmUpdate.value;
+        appState.events[i].eventUpdate.parentElement.previousElementSibling.textContent = descriptionTextUpdate.value;
+        appState.events[i].eventUpdate.parentElement.parentElement.previousElementSibling.textContent = hoursUpdate.value + ":" + minutesUpdate.value + " " + amPmUpdate.value;
         appState.events[i].eventDescription = descriptionTextUpdate.value;
         appState.events[i].eventTime = hoursUpdate.value + ":" + minutesUpdate.value + " " + amPmUpdate.value;
       }
@@ -92,4 +104,30 @@ function updateModalAppear() {
   updateModal.classList.remove('hidden');
   descriptionTextUpdate.value = appState.events[appState.events.length - 1].eventDescription;
   event.target.classList.add('hidden');
+}
+
+function deleteModalAppear() {
+  deleteModal.classList.remove('hidden');
+  event.target.classList.add('hidden');
+}
+
+noButton.addEventListener('click', noButtonClick);
+
+function noButtonClick() {
+  for(var i = 0; i < appState.events.length; i++) {
+    appState.events[i].eventDelete.classList.remove('hidden');
+  }
+  deleteModal.classList.add('hidden');
+}
+
+yesButton.addEventListener('click', yesButtonClick);
+
+function yesButtonClick() {
+  deleteModal.classList.add('hidden');
+  for(var i = 0; i < appState.events.length; i++) {
+    if(appState.events[i].eventDelete.className === 'delete-button hidden') {
+      appState.events[i].eventDelete.parentElement.parentElement.parentElement.remove();
+      appState.events.splice(i, 1);
+    }
+  }
 }
