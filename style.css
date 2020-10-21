@@ -89,10 +89,35 @@ table {
   background-color: blue;
   color: white;
   border: 3px solid black;
+  margin-right: 5px;
+}
+
+.delete-button {
+  color: white;
+  background-color: red;
+  border: 3px solid black;
 }
 
 .description-container {
   display: flex;
   justify-content: space-between;
   margin: 2px;
+}
+
+.yes-no {
+  background-color: white;
+  border: 3px solid black;
+  font-family: 'Work Sans', sans-serif;
+  padding: 7px 24px;
+  font-size: 20px;
+}
+
+#delete-modal-form {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 1px 170px;
+}
+
+.delete-modal {
+  margin-bottom: 50px;
 }
