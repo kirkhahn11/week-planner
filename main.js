@@ -20,13 +20,13 @@ var dayObject = {
 appState.events[appState.currentDay].length;
 
 var currentDay = document.querySelector('#schedule-text > span.current-day');
+var addEntryButton = document.getElementById('add-entry');
 
 var daysOfTheWeek = document.querySelectorAll('.week');
 var weeklyDays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 var scheduleText = document.getElementById('schedule-text');
 var container = document.getElementById('container');
 var modal = document.getElementById('modal');
-var addEntryButton = document.getElementById('add-entry');
 var hours = document.getElementById('hours');
 var minutes = document.getElementById('minutes');
 var amPm = document.getElementById('ampm');
@@ -44,8 +44,8 @@ var yesButton = document.getElementById('yes');
 var noButton = document.getElementById('no');
 
 container.addEventListener('click', addEvent);
-// addEntryButton.addEventListener('click', modalAppear);
-// form.addEventListener('submit', addText);
+addEntryButton.addEventListener('click', modalAppear);
+form.addEventListener('submit', addEntry);
 
 function addEvent(event) {
   if (event.target.id === 'container') {
@@ -55,12 +55,57 @@ function addEvent(event) {
   currentDay.textContent = appState.currentDay;
 }
 
+function addEntry(event) {
+  event.preventDefault();
+  console.log(event.target);
+  var formData = new FormData(event.target);
+  var day = formData.get('day');
+  var hours = formData.get('hours');
+  var minutes = formData.get('minutes');
+  var ampm = formData.get('ampm');
+  var description = formData.get('description');
+  var time = hours + ':' + minutes + ' ' + ampm;
 
+  var domElement = generateTableRow(time, description);
 
-// function modalAppear() {
-//   modal.classList.remove('hidden');
-//   descriptionText.value = '';
-// }
+  var object = {
+    time: time,
+    description: description,
+    domElement: domElement
+  };
+  appState.events[day].push(object);
+  if(appState.currentDay === day) {
+    tbody.appendChild(domElement);
+  }
+  modal.classList.add('hidden');
+}
+
+// Returns a dom element
+function generateTableRow(time, description) {
+  var tableRow = document.createElement('tr');
+  var timeTd = document.createElement('td');
+  var descriptionTd = document.createElement('td');
+  var buttonsTd = document.createElement('td');
+  var updateButton = document.createElement('button');
+  var deleteButton = document.createElement('button');
+  timeTd.textContent = time;
+  descriptionTd.textContent = description;
+  updateButton.textContent = 'Update';
+  deleteButton.textContent = 'Delete';
+  buttonsTd.append(updateButton, deleteButton);
+  tableRow.append(
+    timeTd,
+    descriptionTd,
+    buttonsTd
+  );
+  return tableRow;
+}
+
+function modalAppear() {
+  modal.classList.remove('hidden');
+  descriptionText.value = '';
+}
+
 
 
 // function addText(event) {
