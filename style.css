@@ -17,11 +17,17 @@
 .header-font {
   font-family: 'Work Sans', sans-serif;
 }
+<<<<<<< HEAD
 
 .current-day {
   text-transform: capitalize;
 }
 
+=======
+.current-day {
+  text-transform: capitalize;
+}
+>>>>>>> 4ed08bcd7c652d1eaaedc1ffad1e63133db004b0
 .container {
   margin: auto;
   height: 125px;
