@@ -109,6 +109,11 @@ function updateModalAppear(event) {
   updateFormBody.firstElementChild.value = currentDay.textContent;
 }
 
+function deleteModalAppear(event) {
+  deleteModal.classList.remove('hidden');
+  event.target.classList.add('hidden');
+}
+
 function updateText(event){
   event.preventDefault();
   var formData = new FormData(event.target);
