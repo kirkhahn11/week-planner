@@ -9,44 +9,27 @@
   <body>
     <h1 class="text-align-center header-font">Weekly Planner</h1>
     <div class="container" id="container">
-      <div class="days-of-week text-align-center">Sunday</div>
-      <div class="days-of-week text-align-center">Monday</div>
-      <div class="days-of-week text-align-center">Tuesday</div>
-      <div class="days-of-week text-align-center">Wednesday</div>
-      <div class="days-of-week text-align-center">Thursday</div>
-      <div class="days-of-week text-align-center">Friday</div>
-      <div class="days-of-week text-align-center">Saturday</div>
+      <div data-day="sunday" class="days-of-week text-align-center">Sunday</div>
+      <div data-day="monday" class="days-of-week text-align-center">Monday</div>
+      <div data-day="tuesday" class="days-of-week text-align-center">Tuesday</div>
+      <div data-day="wednesday" class="days-of-week text-align-center">Wednesday</div>
+      <div data-day="thursday" class="days-of-week text-align-center">Thursday</div>
+      <div data-day="friday" class="days-of-week text-align-center">Friday</div>
+      <div data-day="saturday" class="days-of-week text-align-center">Saturday</div>
     </div>
     <div class="text-align-center button-container">
       <button class="text-align-center button" id="add-entry">Add Entry</button>
     </div>
-    <h2 class="text-align-center header-font" id="schedule-text">Scheduled Events For Monday</h2>
+    <h2 class="text-align-center header-font" id="schedule-text">Scheduled Events For <span class="current-day">monday</span></h2>
     <table>
       <thead>
         <tr class="table-header">
           <th class="time-header">Time</th>
           <th class="description-header">Description</th>
+          <th>Actions</th>
         </tr>
       </thead>
-      <tbody id="form-body-sunday" class="week">
-
-      </tbody>
-      <tbody id="form-body-monday" class="week">
-
-      </tbody>
-      <tbody id="form-body-tuesday" class="week">
-
-      </tbody>
-      <tbody id="form-body-wednesday" class="week">
-
-      </tbody>
-      <tbody id="form-body-thursday" class="week">
-
-      </tbody>
-      <tbody id="form-body-friday" class="week">
-
-      </tbody>
-      <tbody id="form-body-saturday" class="week">
+      <tbody>
 
       </tbody>
     </table>
@@ -55,13 +38,13 @@
       <form action="" id="modal-form">
         <select name="day" id="date">
           <option value="Day" disabled selected>Day</option>
-          <option value="Sunday">Sunday</option>
-          <option value="Monday">Monday</option>
-          <option value="Tuesday">Tuesday</option>
-          <option value="Wednesday">Wednesday</option>
-          <option value="Thursday">Thursday</option>
-          <option value="Friday">Friday</option>
-          <option value="Saturday">Saturday</option>
+          <option value="sunday">Sunday</option>
+          <option value="monday">Monday</option>
+          <option value="tuesday">Tuesday</option>
+          <option value="wednesday">Wednesday</option>
+          <option value="thursday">Thursday</option>
+          <option value="friday">Friday</option>
+          <option value="saturday">Saturday</option>
         </select>
         <select name="hours" id="hours">
           <option value="1">1</option>
@@ -92,17 +75,17 @@
       </form>
     </div>
     <div class="modal text-align-center hidden" id="update-modal">
-      <h1>Add Entry</h1>
+      <h1>Update Entry</h1>
       <form action="" id="update-modal-form">
         <select name="day" id="update-date">
           <option value="Day" disabled selected>Day</option>
-          <option value="Sunday">Sunday</option>
-          <option value="Monday">Monday</option>
-          <option value="Tuesday">Tuesday</option>
-          <option value="Wednesday">Wednesday</option>
-          <option value="Thursday">Thursday</option>
-          <option value="Friday">Friday</option>
-          <option value="Saturday">Saturday</option>
+          <option value="sunday">Sunday</option>
+          <option value="monday">Monday</option>
+          <option value="tuesday">Tuesday</option>
+          <option value="wednesday">Wednesday</option>
+          <option value="thursday">Thursday</option>
+          <option value="friday">Friday</option>
+          <option value="saturday">Saturday</option>
         </select>
         <select name="hours" id="update-hours">
           <option value="1">1</option>

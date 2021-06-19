@@ -2,8 +2,24 @@
   text-align: center;
 }
 
+.flex {
+  display: flex;
+}
+
+.left-border {
+  border-left: 2px solid black;
+}
+
+.bottom-border {
+  border-bottom: 2px solid black;
+}
+
 .header-font {
   font-family: 'Work Sans', sans-serif;
+}
+
+.current-day {
+  text-transform: capitalize;
 }
 
 .container {
@@ -50,7 +66,6 @@
 }
 
 tr:nth-child(even) {
-  background-color: #E8E8E8;
   height: 25px;
 }
 
